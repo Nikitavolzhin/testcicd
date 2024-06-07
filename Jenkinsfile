@@ -1,5 +1,5 @@
 pipeline {
-    agent { dockerfile true }
+    agent any
     stages {
         stage('Build') { 
             steps {
@@ -17,5 +17,14 @@ pipeline {
                     }
                 }
             }
+        stage('Building Docker image') {
+            steps {
+                script {
+                    docker.withServer('unix:///var/run/docker.sock') {
+                        sh 'docker compose up --build'
+                    }
+                }
+            }
+        }
     }
 }
