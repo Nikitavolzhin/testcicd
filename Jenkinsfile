@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent { dockerfile true }
     stages {
         stage('Build') { 
             steps {
@@ -17,10 +17,5 @@ pipeline {
                     }
                 }
             }
-        stage('Building Docker image') {
-            steps {
-                sh 'docker compose up --build'
-            }
-        }
     }
 }
