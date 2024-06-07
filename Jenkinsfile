@@ -17,7 +17,11 @@ pipeline {
                     }
                 }
             }
-
+        stage('Build Docker image') {
+            steps {
+                sh 'docker compose up --build'
+            }
+        }
 
     }
 }
