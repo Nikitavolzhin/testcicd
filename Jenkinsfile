@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     docker.withServer('unix:///var/run/docker.sock') {
-                        sh 'docker compose up --build'
+                        sh 'docker ps'
                     }
                 }
             }
