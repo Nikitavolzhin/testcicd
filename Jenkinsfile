@@ -27,11 +27,11 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
-        stage('DockerHub') {
-            steps {
-                sh 'docker push volzhinnikita/ci_cd_test:latest'
-            }
-        }
+        //stage('DockerHub') {
+        //    steps {
+        //        sh 'docker push volzhinnikita/ci_cd_test:latest'
+        //    }
+        //}
 
     }
 }
