@@ -19,14 +19,19 @@ pipeline {
             }
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t volzhinnikita/ci_cd_test:latest .'
+                sh 'docker-compose build'
             }
         }
-        //stage('Run Docker containers') {
-        //    steps {
-        //        sh 'docker-compose up -d'
-        //    }
-        //}
+        stage('Run Docker containers') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+        stage('DockerHub') {
+            steps {
+                sh 'docker push volzhinnikita/ci_cd_test:latest'
+            }
+        }
 
     }
 }
