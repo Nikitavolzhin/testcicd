@@ -27,6 +27,7 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
+
         stage('Push Docker image to DockerHub') {
             steps {
                 withCredentials([string(credentialsId: 'dockerhub_password', variable: 'docker_hub_password')]) {
