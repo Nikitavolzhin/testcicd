@@ -11,6 +11,7 @@ services:
   server:
     build:
       context: .
+    image: volzhinnikita/test_cicd
     ports:
       - 8000:8000
 

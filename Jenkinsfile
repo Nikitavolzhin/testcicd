@@ -19,22 +19,22 @@ pipeline {
             }
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t volzhinnikita/test_cicd .'
+                sh 'docker-compose build'
             }
         }
-        //stage('Run Docker containers') {
-        //    steps {
-        //        sh 'docker-compose up -d'
-        //    }
-        //}
-        //stage('Push Docker image to DockerHub') {
-        //    steps {
-        //        withCredentials([string(credentialsId: 'dockerhub_password', variable: 'docker_hub_password')]) {
-        //            sh 'docker login -u volzhinnikita -p ${docker_hub_password}'
-        //        }
-        //        sh 'docker push volzhinnikita/test_cicd:latest'
-        //    }
-        //}
+        stage('Run Docker containers') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+        stage('Push Docker image to DockerHub') {
+            steps {
+                withCredentials([string(credentialsId: 'dockerhub_password', variable: 'docker_hub_password')]) {
+                    sh 'docker login -u volzhinnikita -p ${docker_hub_password}'
+                }
+                sh 'docker push volzhinnikita/test_cicd'
+            }
+        }
 
     }
 }
