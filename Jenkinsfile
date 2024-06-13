@@ -22,11 +22,11 @@ pipeline {
                 sh 'docker-compose build'
             }
         }
-        stage('Run Docker containers') {
-            steps {
-                sh 'docker-compose up -d'
-            }
-        }
+        //stage('Run Docker containers') {
+        //    steps {
+        //        sh 'docker-compose up -d'
+        //    }
+        //}
 
         stage('Push Docker image to DockerHub') {
             steps {
