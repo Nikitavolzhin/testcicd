@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment #The name of the Kubernetes 
+        #Deployment to be created in the Kubernetes cluster
+  labels:
+    app: flask-app
+spec:
+  replicas: 1 #The number of pods to be created in the 
+   #Kubernetes cluster for the application container
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - name: flask-app #The name of the application container
+        #The Docker image for building the application container
+        image: volzhinnikita/test_cicd:latest 
+        ports:
+        - containerPort: 8000 #The port for the application container
