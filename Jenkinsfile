@@ -38,13 +38,8 @@ pipeline {
         }
         stage('Deploying Docker container to K8s') {
             steps {
-            sh 'ls'
-                script{
-                    kubernetesDeploy(configs: "deployment.yaml",
-                                         "service.yaml")
-                    }
-                //sh 'kubectl apply -f deployment.yaml --validate=false'
-                //sh 'kubectl apply -f service.yaml --validate=false'
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
             }
         }
 
