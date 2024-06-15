@@ -36,12 +36,6 @@ pipeline {
                 sh 'docker push volzhinnikita/test_cicd'
             }
         }
-        stage('Deploying Docker container to K8s') {
-            steps {
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
-            }
-        }
 
     }
 }
