@@ -9,5 +9,5 @@ spec:
     app: flask-app
   ports:
   - protocol: TCP
-    port: 5000 #Service port
+    port: 8000 #Service port
     targetPort: 8000 #The port for the application container
