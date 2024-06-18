@@ -5,9 +5,11 @@ metadata:
   #in the Kubernetes cluster
   name: flask-app-service 
 spec:
+  type: NodePort
   selector:
     app: flask-app
   ports:
   - protocol: TCP
     port: 8000 #Service port
     targetPort: 8000 #The port for the application container
+    nodePort: 8000
