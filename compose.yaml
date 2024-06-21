@@ -14,6 +14,12 @@ services:
     image: volzhinnikita/test_cicd
     ports:
       - 8000:8000
+  awscli:
+    image: public.ecr.aws/aws-cli/aws-cli
+    command: "s3 ls"
+    tty: true
+    stdin_open: true
+    rm: true
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

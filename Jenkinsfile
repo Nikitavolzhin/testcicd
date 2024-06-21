@@ -27,6 +27,11 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
+        stage('Run AWSCLI') {
+            steps {
+                sh 'docker-compose run awscli'
+            }
+        }
 
         stage('running python file') {
             steps {
