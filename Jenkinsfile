@@ -30,7 +30,7 @@ pipeline {
 
         stage('running python file') {
             steps {
-               sh 'docker-compose exec server python3 hello_world.py'
+               sh 'docker-compose exec server python3 hellow_world.py'
             }
         }
 
