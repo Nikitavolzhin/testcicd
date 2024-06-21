@@ -35,7 +35,7 @@ pipeline {
                 }
 
             }
-
+        }
         stage('Run AWSCLI') {
             steps {
                 sh 'docker-compose run'// --rm awscli'
@@ -46,6 +46,4 @@ pipeline {
                sh 'docker-compose exec server python3 hellow_world.py'
             }
         }
-
-    }
 }
