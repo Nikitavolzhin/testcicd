@@ -19,7 +19,6 @@ services:
     command: "s3 ls"
     tty: true
     stdin_open: true
-    rm: true
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Run AWSCLI') {
             steps {
-                sh 'docker-compose run awscli'
+                sh 'docker-compose run awscli --rm awscli'
             }
         }
 
