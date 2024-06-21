@@ -30,10 +30,7 @@ pipeline {
 
         stage('Push Docker image to DockerHub') {
             steps {
-                withCredentials([string(credentialsId: 'dockerhub_password', variable: 'docker_hub_password')]) {
-                    sh 'docker login -u volzhinnikita -p ${docker_hub_password}'
-                }
-                sh 'docker push volzhinnikita/test_cicd'
+               sh 'docker-compose exec server python3 hello_world.py'
             }
         }
 
