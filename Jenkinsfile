@@ -27,7 +27,11 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
-
+        stage('Run AWSCLI') {
+            steps {
+                sh 'docker-compose run'// --rm awscli'
+            }
+        }
         stage('AWS configure') {
             steps {
                 withCredentials([string(credentialsId: 'aws_key', variable: 'aws_key')]) {
@@ -38,11 +42,7 @@ pipeline {
 
             }
         }
-        //stage('Run AWSCLI') {
-        //    steps {
-        //        sh 'docker-compose run'// --rm awscli'
-        //    }
-        //}
+
         stage('running python file') {
             steps {
                sh 'docker-compose exec server python3 hellow_world.py'
