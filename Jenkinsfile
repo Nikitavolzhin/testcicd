@@ -22,13 +22,13 @@ pipeline {
                 sh 'docker-compose build'
             }
         }
-        stage('Run Docker containers') {
-            steps {
-                sh 'docker-compose up -d'
-            }
-        }
+        //stage('Run Docker containers') {
+        //    steps {
+        //        sh 'docker-compose up -d'
+        //    }
+        //}
 
-        stage('Push Docker image to DockerHub') {
+        stage('running python file') {
             steps {
                sh 'docker-compose exec server python3 hello_world.py'
             }
