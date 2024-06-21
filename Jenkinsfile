@@ -30,7 +30,7 @@ pipeline {
         stage('Run AWSCLI') {
             steps {
             withCredentials([string(credentialsId: 'aws_key', variable: 'aws_key')]) {
-                sh 'docker-compose run --env AWS_SECRET_ACCESS_KEY=${aws_key} AWS_DEFAULT_REGION=eu-north-1 AWS_ACCESS_KEY_ID=AKIAXYKJQVMXB7I3FBOC'//--rm awscli'
+                sh 'docker-compose run awscli --env AWS_SECRET_ACCESS_KEY=${aws_key} AWS_DEFAULT_REGION=eu-north-1 AWS_ACCESS_KEY_ID=AKIAXYKJQVMXB7I3FBOC'//--rm awscli'
                 }
             }
         }
