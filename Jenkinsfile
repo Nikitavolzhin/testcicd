@@ -31,7 +31,9 @@ pipeline {
         stage('AWS configure') {
             steps {
                 withCredentials([string(credentialsId: 'aws_key', variable: 'aws_key')]) {
-                    sh 'docker-compose exec server AWS_ACCESS_KEY_ID=AKIAXYKJQVMXB7I3FBOC AWS_SECRET_ACCESS_KEY=${aws_key} aws configure'
+                    sh 'docker-compose exec server export AWS_ACCESS_KEY_ID=AKIAXYKJQVMXB7I3FBOC'
+                    sh 'docker-compose exec server export AWS_ACCESS_KEY_ID=${aws_key}'
+                    sh 'docker-compose exec server aws configure --region eu-north-1'
                 }
 
             }
